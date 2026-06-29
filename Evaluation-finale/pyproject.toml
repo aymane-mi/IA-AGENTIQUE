@@ -1,0 +1,25 @@
+[project]
+name = "assistant-touristique-agentic-rag"
+version = "0.1.0"
+description = "Evaluation finale - Agentic RAG avec LangGraph (Tourisme au Maroc)"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain",
+    "langchain-ollama",
+    "langchain-community",
+    "langchain-huggingface",
+    "langchain-chroma",
+    "sentence-transformers",
+    "pypdf",
+    "langgraph",
+    "python-dotenv",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

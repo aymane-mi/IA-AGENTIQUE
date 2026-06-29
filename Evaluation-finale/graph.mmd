@@ -1,0 +1,12 @@
+---
+title: Assistant Touristique Agentic RAG
+---
+flowchart TD
+    START([START]) --> agent[agent: LLM + decision outil]
+    agent -->|tool_calls| tools[tools: retrieve / itinerary / budget]
+    agent -->|reponse finale| END([END])
+    tools -->|retrieve_documents| grade_documents[grade_documents]
+    tools -->|autres outils| agent
+    grade_documents -->|documents pertinents| agent
+    grade_documents -->|documents non pertinents| rewrite_query[rewrite_query]
+    rewrite_query --> agent
