@@ -1,0 +1,9 @@
+graph TD
+    START([START]) --> agent[agent: raisonnement LLM]
+    agent -->|tool calls| tools[tools: retrieve / budget / destination]
+    agent -->|reponse finale| END([END])
+    tools -->|retrieve_documents| grade[grade_documents]
+    tools -->|autre outil| agent
+    grade -->|documents pertinents| agent
+    grade -->|documents non pertinents| rewrite[rewrite_query]
+    rewrite --> agent
